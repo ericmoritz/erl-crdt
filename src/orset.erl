@@ -1,6 +1,6 @@
 -module(orset).
 -export([new/0, add_element/2, del_element/2, is_element/2, merge/2,
-        from_list/1]).
+        from_list/1, to_list/1]).
 
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
@@ -54,6 +54,9 @@ is_element(Element, {A, R}) ->
 from_list(L) ->
     lists:foldl(fun add_element/2, new(), L).
 
+to_list({A, R}) ->
+    [Key || Key <- dict:fetch_keys(A), is_element(Key, {A, R})].
+
 -ifdef(TEST).
 
 merge_test() ->
@@ -68,5 +71,16 @@ merge_test() ->
     ?assert(is_element(eric, S3)),
     ?assert(not is_element(shawn, S3)),
     ?assert(not is_element(glenn, S3)).
+
+to_list_test() ->
+    S = from_list([eric, glenn, shawn]),
+    
+    % diverge from S
+    S1 = del_element(glenn, S),
+    S2 = del_element(shawn, add_element(shawn, S)),
+
+    S3 = merge(S1, S2),
+    
+    ?assert([eric] =:= to_list(S3)).
 
 -endif.
