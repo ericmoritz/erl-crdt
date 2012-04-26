@@ -1,5 +1,6 @@
 -module(twopset).
--export([new/0, add_element/2, del_element/2, is_element/2, merge/2]).
+-export([new/0, add_element/2, del_element/2, is_element/2, merge/2,
+        from_list/1]).
 
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
