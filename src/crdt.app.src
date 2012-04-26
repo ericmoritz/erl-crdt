@@ -1,0 +1,12 @@
+{application, crdt,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { crdt_app, []}},
+  {env, []}
+ ]}.
