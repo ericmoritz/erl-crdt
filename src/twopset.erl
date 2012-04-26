@@ -20,7 +20,12 @@ add_element(Element, {ASet, RSet}) ->
     {sets:add_element(Element, ASet), RSet}.
 
 del_element(Element, {ASet, RSet}) ->
-    {ASet, sets:add_element(Element, RSet)}.
+    case is_element(Element, {ASet, RSet}) of
+        true ->
+            {ASet, sets:add_element(Element, RSet)};
+        false ->
+            {ASet, RSet}
+    end.
 
 from_list(L) ->
     lists:foldl(fun add_element/2, new(), L).

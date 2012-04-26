@@ -26,11 +26,16 @@ add_element(Element, {A, R}) ->
     {dict:store(Element, ESet, A), R}.
 
 del_element(Element, {ADict, RDict}) ->
-    ESet = sets:union(get_element_set(Element, ADict),
-                      get_element_set(Element, RDict)),
+    case is_element(Element, {ADict, RDict}) of
+        true->
+            ESet = sets:union(get_element_set(Element, ADict),
+                              get_element_set(Element, RDict)),
 
-    {dict:erase(Element, ADict),
-     dict:store(Element, ESet, RDict)}.
+            {dict:erase(Element, ADict),
+             dict:store(Element, ESet, RDict)};
+        false ->
+            {ADict, RDict}
+    end.
 
 merge({A1, R1},{A2, R2}) ->
     MergeEDict = fun(D1, D2) ->
