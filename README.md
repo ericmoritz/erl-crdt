@@ -18,7 +18,7 @@ A Concurrent add and removes favors add.
     S2 = orset:add_element(shawn, S),
     
     % merge
-    [eric, shawn] = orset:to_list(orset:merge(S1, S2)),
+    [eric, shawn] = orset:to_list(orset:merge(S1, S2)).
     
 
 In most applications, the orset is the preferred module to use.  
