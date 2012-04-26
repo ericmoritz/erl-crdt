@@ -11,16 +11,14 @@ enables elements to be removed and added concurrently.
 
 A Concurrent add and removes favors add.
 
-    S = orset:from_list([glenn, eric]),
+    S = or_set:from_list([glenn, eric]),
 
     % diverge
-    S1 = orset:del_element(glenn, S),
-    S2 = orset:add_element(shawn, S),
+    S1 = or_set:del_element(glenn, S),
+    S2 = or_set:add_element(shawn, S),
     
     % merge
-    [eric, shawn] = orset:to_list(orset:merge(S1, S2)).
+    [eric, shawn] = or_set:to_list(or_set:merge(S1, S2)).
     
-
-In most applications, the orset is the preferred module to use.  
 
 
