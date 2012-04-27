@@ -22,7 +22,7 @@ new() ->
     new(ordered).
 
 new(ordered) ->
-    new(orddict);
+    new(gb_dict);
 new(unordered) ->
     new(dict);
 new(DictModule) ->
@@ -64,7 +64,7 @@ from_list(L) ->
     from_list(ordered, L).
 
 from_list(ordered, L) ->
-    from_list(orddict, L);
+    from_list(gb_dict, L);
 from_list(unordered, L) ->
     from_list(dict, L);
 from_list(DictMod, L) ->
