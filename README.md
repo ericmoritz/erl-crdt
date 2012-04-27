@@ -3,6 +3,8 @@
 An experimental port of my [Python
 CRDT](https://github.com/ericmoritz/crdt) project
 
+If you don't know what a CRDT is, watch
+[this](http://research.microsoft.com/apps/video/dl.aspx?id=153540)
 
 ## Usage
 
@@ -22,3 +24,8 @@ A Concurrent add and removes favors add.
     
 
 
+## References
+
+* [INRIA Paper](http://hal.archives-ouvertes.fr/docs/00/55/55/88/PDF/techreport.pdf)
+* [Marc Shapiro's talk @ Microsoft](http://research.microsoft.com/apps/video/dl.aspx?id=153540)
+* [Logoot](https://gforge.inria.fr/docman/view.php/1646/6393/weiss09.pdf)- CRDT for a distributed peer-to-peer Document editing
