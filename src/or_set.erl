@@ -68,7 +68,7 @@ from_list(ordered, L) ->
 from_list(unordered, L) ->
     from_list(dict, L);
 from_list(DictMod, L) ->
-    lists:foldl(fun add_element/2, new(DictMod), L);
+    lists:foldl(fun add_element/2, new(DictMod), L).
 
 
 to_list(ORSet=#orset{dictmod=DictMod, a=A}) ->
